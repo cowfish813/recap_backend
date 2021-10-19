@@ -13,3 +13,15 @@ router.get('/', (req, res) => {
         .catch(err => res.status(404).json(err))
         //if error creates error 404 and renders error into JSON
 });
+
+router.post('/', (req, res) => {
+    const newQuestion = new Question({
+        name: req.body.name, 
+        //we're guaranteed to have a body
+            //"name" is defined on FE
+        content: req.body.content
+            //content is defined from FE
+    }); //create new question
+}) 
+
+module.exports = router; //exports whole router

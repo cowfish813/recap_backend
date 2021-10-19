@@ -10,6 +10,13 @@ const express = require('express'); //
 const app = express(); 
     //app is now an instance of express class
 
+app.use(express.json()); 
+    //everything we do will be done in JSON
+        //express gives it to us
+const questions = require('./routes/api/questions'); //routes imported as questions
+app.use('/api/questions', questions); //now have access to questions
+
+
 app.get('/', (req, res) => res.send("This Works")) //takes 2 args
                     //first is string/endpoint
                     //second callback fxn
